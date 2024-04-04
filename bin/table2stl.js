@@ -1,14 +1,16 @@
 #!/usr/bin/env node
 
 import * as fs from 'fs';
+import * as path from 'path';
 import {STLCreator} from '../src/stl-creator.js';
-
+console.log();
 const file = fs.openSync(process.argv[2]);
+
 const text = fs.readFileSync(file, {encoding: "utf-8"});
 const data = text.split("\n").filter(r => r.length > 0).map(r => r.split(',').map(h => parseFloat(h)));
 const X = data[0].length - 1; // Три точки описывают два отрезка
 const Y = data.length - 1;
-
+console.log(`Total ${X * Y * 2} triangles have top surface`);
 const stl = new STLCreator();
 
 stl.addQuad([0, 0, -1], [0, 0, 0 ], [X, 0, 0 ], [X, Y, 0 ], [0, Y, 0 ]);
@@ -26,4 +28,4 @@ for (let y = 0; y < Y; y++) {
     }
 }
 
-fs.writeFileSync('./table.stl', Buffer.from(stl.buffer), null)
+fs.writeFileSync(path.basename(process.argv[2]).slice(0, -4) + '.stl', Buffer.from(stl.buffer), null)

@@ -5,7 +5,7 @@
   "type": "module",
   "main": "src/stl-creator.js",
   "scripts": {
-    "table2stl": "node ./demo/table.js",
+    "table2stl": "node ./bin/table2stl.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
