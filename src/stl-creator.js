@@ -49,7 +49,7 @@ class Triangle {
     }
 }
 
-module.exports =  class STL {
+export class STLCreator {
     #triangles = [];
     add(normal, vertexs) {
         this.#triangles.push(new Triangle(normal, vertexs));

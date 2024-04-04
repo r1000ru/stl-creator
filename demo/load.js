@@ -1,9 +1,9 @@
-const fs = require('fs');
-const STL = require('../src/stl');
+import * as fs from 'fs';
+import {STLCreator} from '../src/stl-creator';
 
 const file = fs.openSync(process.argv[2]);
 const data = fs.readFileSync(file, null);
-const stl = new STL();
+const stl = new STLCreator();
 stl.fromDataView(new DataView(new Uint8Array(data).buffer));
 
 const triangles = stl.triangles;

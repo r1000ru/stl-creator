@@ -1,0 +1,24 @@
+{
+  "name": "stl-creator",
+  "version": "0.0.1",
+  "description": "STL file creator",
+  "type": "module",
+  "main": "src/stl-creator.js",
+  "scripts": {
+    "table2stl": "node ./demo/table.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r1000ru/stl-creator.git"
+  },
+  "keywords": [
+    "STL"
+  ],
+  "author": "Roman Sorokin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/r1000ru/stl-creator/issues"
+  },
+  "homepage": "https://github.com/r1000ru/stl-creator#readme"
+}

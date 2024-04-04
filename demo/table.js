@@ -1,5 +1,6 @@
-const fs = require('fs');
-const STL = require('../src/stl');
+import * as fs from 'fs';
+import * as path from 'path';
+import {STLCreator} from '../src/stl-creator.js';
 
 const file = fs.openSync(process.argv[2]);
 const text = fs.readFileSync(file, {encoding: "utf-8"});
@@ -7,7 +8,7 @@ const data = text.split("\n").filter(r => r.length > 0).map(r => r.split(',').ma
 const X = data[0].length - 1; // Три точки описывают два отрезка
 const Y = data.length - 1;
 
-const stl = new STL();
+const stl = new STLCreator();
 
 stl.addQuad([0, 0, -1], [0, 0, 0 ], [X, 0, 0 ], [X, Y, 0 ], [0, Y, 0 ]);
 for (let y = 0; y < Y; y++) {

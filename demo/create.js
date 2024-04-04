@@ -1,7 +1,7 @@
-const fs = require('fs');
-const STL = require('../src/stl');
+import * as fs from 'fs';
+import {STLCreator} from '../src/stl-creator';
 
-const stl = new STL();
+const stl = new STLCreator();
 
 const points = [
     [10,20,30],
